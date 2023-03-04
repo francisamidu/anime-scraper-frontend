@@ -7,9 +7,9 @@ const tags = ["animes", "reviews", "videos", "new releases"];
 const Header = () => {
   return (
     <header className="min-h-screen flex flex-col justify-center items-center bg-[#00000066]">
-      <div className="md:max-w-screen-xl md:mx-auto flex flex-col md:flex-row md:items-start justify-center items-center p-5 bg-white">
+      <div className="md:max-w-screen-xl md:mx-auto flex flex-col md:flex-row md:items-start justify-center items-center p-5 bg-white rounded-md text-center">
         <div className="md:w-1/2 ml-5 flex flex-col">
-          <div className="flex flex-row items-center justify-center md:justify-start ">
+          <div className="flex flex-row items-center justify-center ">
             {tags.map((tag, index) =>
               tags.length - index !== 1 ? (
                 <>
@@ -31,17 +31,21 @@ const Header = () => {
               )
             )}
           </div>
-          <h1 className="my-2 text-midnight-500 text-5xl font-bold md:text-left text-center">
+          <h1 className="my-2 text-midnight-500 text-5xl font-bold text-center">
             {shared.name}
           </h1>
-          <h2 className="my-3 text-blue-gray-600 md:text-left text-center">
+          <h2 className="my-3 text-blue-gray-600 text-center">
             {shared.description}
           </h2>
           <form className="my-4">
-            <div className="flex flex-col md:flex-row items-center mb-2">
+            <div className="flex flex-col items-center mb-2">
+              <input
+                placeholder="Enter full Name"
+                className="w-4/5 p-2 rounded-lg border-blue-gray-50 border-[1px] mb-2 outline-none px-3"
+              />
               <input
                 placeholder="Enter your email address"
-                className="w-3/5 p-2 rounded-lg border-blue-gray-50 border-[1px] mr-2 outline-none px-3"
+                className="w-4/5 p-2 rounded-lg border-blue-gray-50 border-[1px] mb-2 outline-none px-3"
               />
               <Button
                 color="green"
