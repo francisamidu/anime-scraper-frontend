@@ -7,6 +7,10 @@ body {
   padding: 0;
   margin: 0;
   font-family: Inter, sans-serif;
+  background-image: url("/image.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #00000066;
 }
 
 a {

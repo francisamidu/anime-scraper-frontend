@@ -6,17 +6,8 @@ import Image from "next/image";
 const tags = ["animes", "reviews", "videos", "new releases"];
 const Header = () => {
   return (
-    <header className="min-h-[90vh] flex flex-row justify-center items-center">
-      <div className="md:max-w-screen-xl md:mx-auto flex flex-col md:flex-row md:items-start items-center p-5">
-        <div className="md:w-1/2 mb-3 md:mx-0">
-          <Image
-            src="/image.jpg"
-            className="rounded-md w-full"
-            alt="Image here"
-            width="670"
-            height="670"
-          />
-        </div>
+    <header className="min-h-screen flex flex-col justify-center items-center bg-[#00000066]">
+      <div className="md:max-w-screen-xl md:mx-auto flex flex-col md:flex-row md:items-start justify-center items-center p-5 bg-white">
         <div className="md:w-1/2 ml-5 flex flex-col">
           <div className="flex flex-row items-center justify-center md:justify-start ">
             {tags.map((tag, index) =>

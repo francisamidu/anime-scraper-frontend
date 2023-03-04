@@ -19,11 +19,7 @@ const Index = () => {
 };
 
 Index.getLayout = (page: ReactNode) => {
-  return (
-    <Layout page="Home" loggedIn={false}>
-      {page}
-    </Layout>
-  );
+  return <Layout>{page}</Layout>;
 };
 
 export default Index;
