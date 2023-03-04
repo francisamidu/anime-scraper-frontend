@@ -41,11 +41,11 @@ const Header = () => {
             <div className="flex flex-col items-center mb-2">
               <input
                 placeholder="Enter full Name"
-                className="w-4/5 p-2 rounded-lg border-blue-gray-50 border-[1px] mb-2 outline-none px-3"
+                className="w-[90%] p-2 rounded-lg border-blue-gray-50 border-[1px] mb-2 outline-none px-3"
               />
               <input
                 placeholder="Enter your email address"
-                className="w-4/5 p-2 rounded-lg border-blue-gray-50 border-[1px] mb-2 outline-none px-3"
+                className="w-[90%] p-2 rounded-lg border-blue-gray-50 border-[1px] mb-2 outline-none px-3"
               />
               <Button
                 color="green"
