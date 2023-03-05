@@ -12,15 +12,12 @@ const Header = () => {
           <div className="flex flex-row items-center justify-center ">
             {tags.map((tag, index) =>
               tags.length - index !== 1 ? (
-                <>
-                  <span
-                    className="uppercase text-xs font-bold text-midnight-500"
-                    key={index}
-                  >
+                <div key={index}>
+                  <span className="uppercase text-xs font-bold text-midnight-500">
                     {tag}
                   </span>
                   <span className="mx-3 text-midnight-500">-</span>
-                </>
+                </div>
               ) : (
                 <span
                   className="uppercase text-xs font-bold text-midnight-500"
@@ -58,7 +55,8 @@ const Header = () => {
               You have subscribed! Check your email for the confirmation
             </span> */}
             <span className="text-blue-gray-600 md:text-left text-center w-full">
-              Get weekly updates in your inbox. Don't worry we don't spam!!
+              Get weekly updates in your inbox. Don{`'`}t worry we don{`'`}t
+              spam!!
             </span>
           </form>
         </div>
