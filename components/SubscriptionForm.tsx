@@ -1,10 +1,14 @@
 import React from "react";
 import { MainBtn } from ".";
+import shared from "../shared.json";
 
 const SubscriptionForm = () => {
   return (
     <form className="my-4">
-      <div className="flex flex-col items-center mb-2">
+      <h1 className="my-2 text-midnight-500 text-5xl font-bold text-center">
+        {shared.name}
+      </h1>
+      <div className="flex flex-col items-center my-4">
         <input
           placeholder="Enter full Name"
           className="w-[90%] p-2 rounded-lg border-blue-gray-50 border-[1px] mb-2 outline-none px-3"
