@@ -2,6 +2,7 @@ import { Button } from "@material-tailwind/react";
 import React from "react";
 import shared from "../shared.json";
 import Image from "next/image";
+import { MainBtn } from ".";
 
 const tags = ["animes", "reviews", "videos", "new releases"];
 const Header = () => {
@@ -44,12 +45,7 @@ const Header = () => {
                 placeholder="Enter your email address"
                 className="w-[90%] p-2 rounded-lg border-blue-gray-50 border-[1px] mb-2 outline-none px-3"
               />
-              <Button
-                color="green"
-                className="!w-max !bg-midnight-500 md:mt-0 mt-2"
-              >
-                Subscribe Now
-              </Button>
+              <MainBtn text="Subscribe Now" />
             </div>
             {/* <span className="text-midnight-500 md:text-left text-center">
               You have subscribed! Check your email for the confirmation

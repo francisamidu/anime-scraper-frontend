@@ -3,7 +3,7 @@ import React from "react";
 
 type TButton = {
   text: string;
-  onClick: () => void;
+  onClick?: () => void;
 };
 const MainBtn = ({ onClick, text }: TButton) => {
   const handleClick = typeof onClick === "function" ? onClick : () => {};
