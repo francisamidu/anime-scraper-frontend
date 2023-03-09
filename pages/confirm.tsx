@@ -1,6 +1,6 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import shared from "../shared.json";
-import { MailCheck } from "lucide-react";
+import { Layout, MailCheck } from "lucide-react";
 import { MainBtn } from "../components";
 
 const Confirm = () => {
@@ -24,6 +24,10 @@ const Confirm = () => {
       </form>
     </main>
   );
+};
+
+Confirm.getLayout = (page: ReactNode) => {
+  return <Layout>{page}</Layout>;
 };
 
 export default Confirm;
