@@ -19,9 +19,6 @@ const SubscriptionForm = () => {
         />
         <MainBtn text="Subscribe Now" />
       </div>
-      {/* <span className="text-midnight-500 md:text-left text-center">
-              You have subscribed! Check your email for the confirmation
-            </span> */}
       <span className="text-blue-gray-600 md:text-left text-center w-full">
         Get weekly updates in your inbox. Don{`'`}t worry we don{`'`}t spam!!
       </span>
