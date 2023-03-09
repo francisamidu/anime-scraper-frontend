@@ -12,7 +12,7 @@ const Layout = ({ children }: Partial<PropsWithChildren>) => {
         <meta name="title" content={`${name}-${description}`}></meta>
         <meta name="description" content={description}></meta>
       </Head>
-      <main className="flex flex-col justify-between min-h-[95vh]">
+      <main className="flex flex-col justify-between min-h-[90vh]">
         {children}
       </main>
       <Footer />

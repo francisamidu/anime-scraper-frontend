@@ -10,7 +10,7 @@ const SubscriptionForm = () => {
       </h1>
       <div className="flex flex-col items-center my-4">
         <input
-          placeholder="Enter full Name"
+          placeholder="Enter first Name"
           className="w-[90%] p-2 rounded-lg border-blue-gray-50 border-[1px] mb-2 outline-none px-3"
         />
         <input

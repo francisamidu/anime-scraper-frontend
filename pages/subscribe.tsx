@@ -4,7 +4,9 @@ import { Layout, SubscriptionForm } from "../components";
 const Subscribed = () => {
   return (
     <main className="bg-white flex flex-row items-center justify-center min-h-screen">
-      <SubscriptionForm />
+      <div className="shadow-md p-6">
+        <SubscriptionForm />
+      </div>
     </main>
   );
 };
