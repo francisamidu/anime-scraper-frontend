@@ -4,6 +4,9 @@ import { MailCheck } from "lucide-react";
 import { MainBtn } from "../components";
 
 const ConfirmEmail = () => {
+  const confirmEmail = async () => {
+    // Content goes here
+  };
   return (
     <main className="bg-white flex flex-row items-center justify-center min-h-screen">
       <form className="w-[600px] shadow-md rounded flex flex-col items-center p-8">
@@ -19,7 +22,7 @@ const ConfirmEmail = () => {
           </span>
         </p>
         <div className="my-4 w-fit">
-          <MainBtn text="Check your inbox" />
+          <MainBtn text="Check your inbox" onClick={confirmEmail} />
         </div>
       </form>
     </main>
