@@ -3,7 +3,7 @@ import { Layout, SubscriptionForm } from "../components";
 
 const Subscribed = () => {
   return (
-    <main className="bg-white flex flex-row items-center justify-center">
+    <main className="bg-white flex flex-row items-center justify-center min-h-[90vh]">
       <div className="shadow-md p-6">
         <SubscriptionForm />
       </div>

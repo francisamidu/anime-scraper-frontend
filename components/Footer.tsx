@@ -1,10 +1,10 @@
 import React from "react";
-import { Twitter, Github } from "lucide-react";
+import { TwitterIcon as Twitter, GithubIcon as Github } from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="w-full bg-white">
-      <div className="max-w-screen-lg md:mx-auto  flex flex-row items-center justify-between border-t border-t-gray-200 py-6">
+      <div className="max-w-screen-lg md:mx-auto  flex flex-row items-center justify-between border-t border-t-gray-200 py-4">
         <p>
           Made by{" "}
           <a
@@ -19,7 +19,10 @@ const Footer = () => {
           <a href="https://twitter.com/iamfrancisamidu" className="font-bold">
             <Twitter className="mr-2" size={25} />
           </a>
-          <a href="https://github.com/francisamidu" className="font-bold">
+          <a
+            href="https://github.com/francisamidu/anime-scraper"
+            className="font-bold"
+          >
             <Github className="ml-2" size={25} />
           </a>
         </div>
