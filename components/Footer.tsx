@@ -11,7 +11,9 @@ const Footer = () => {
             className="font-bold"
             href="https://francis-amidu.netlify.app"
             target="_blank"
-          ></a>
+          >
+            Francis Amidu
+          </a>
         </p>
         <div className="flex flex-row items-center">
           <a href="https://twitter.com/iamfrancisamidu" className="font-bold">
