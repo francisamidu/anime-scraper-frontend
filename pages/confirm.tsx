@@ -3,7 +3,7 @@ import shared from "../shared.json";
 import { Layout, MailCheck } from "lucide-react";
 import { MainBtn } from "../components";
 
-const Confirm = () => {
+const ConfirmEmail = () => {
   return (
     <main className="bg-white flex flex-row items-center justify-center min-h-screen">
       <form className="w-[600px] shadow-md rounded flex flex-col items-center p-8">
@@ -26,8 +26,8 @@ const Confirm = () => {
   );
 };
 
-Confirm.getLayout = (page: ReactNode) => {
+ConfirmEmail.getLayout = (page: ReactNode) => {
   return <Layout>{page}</Layout>;
 };
 
-export default Confirm;
+export default ConfirmEmail;
