@@ -31,6 +31,10 @@ export default async function handler(
     `${shared.api}/newsletter/unsubscribe`,
     {
       method: "POST",
+      body: JSON.stringify({
+        conf_num,
+        email,
+      }),
     }
   );
   res.status(200).json({
