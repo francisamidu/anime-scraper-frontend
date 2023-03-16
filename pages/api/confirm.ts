@@ -27,9 +27,16 @@ export default async function handler(
     });
   }
 
-  const response = await fetcher<ResponseData>(`${shared.api}/newsletter`, {
-    method: "POST",
-  });
+  const response = await fetcher<ResponseData>(
+    `${shared.api}/newsletter/confirm`,
+    {
+      method: "POST",
+      body: JSON.stringify({
+        conf_num,
+        email,
+      }),
+    }
+  );
   res.status(200).json({
     result: response.result,
   });
