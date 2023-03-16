@@ -5,7 +5,7 @@ import shared from "../../shared.json";
 export type ResponseData = {
   result: string;
 };
-interface ExtendedNextApiRequest extends NextApiRequest {
+export interface ExtendedNextApiRequest extends NextApiRequest {
   body: {
     email: string;
     firstName: string;
@@ -28,9 +28,12 @@ export default async function handler(
     });
   }
 
-  const response = await fetcher<ResponseData>(`${shared.api}/newsletter`, {
-    method: "POST",
-  });
+  const response = await fetcher<ResponseData>(
+    `${shared.api}/newsletter/subscribe`,
+    {
+      method: "POST",
+    }
+  );
   res.status(200).json({
     result: response.result,
   });
