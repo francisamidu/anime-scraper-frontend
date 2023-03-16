@@ -32,6 +32,10 @@ export default async function handler(
     `${shared.api}/newsletter/subscribe`,
     {
       method: "POST",
+      body: JSON.stringify({
+        email,
+        firstName,
+      }),
     }
   );
   res.status(200).json({
