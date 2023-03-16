@@ -1,4 +1,5 @@
 {
     "name": "Animescraper",
+    "api": "https://anime-scraper.cyclic.app/",
     "description": "An anime scraper that keeps track newly released animes and sends you notification after an update"
 }
