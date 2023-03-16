@@ -1,5 +1,5 @@
 import React from "react";
-import { TwitterIcon as Twitter, GithubIcon as Github } from "lucide-react";
+import { Twitter, Github } from "lucide-react";
 
 const Footer = () => {
   return (
