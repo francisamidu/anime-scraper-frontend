@@ -4,7 +4,8 @@ import { getEnv } from "../../utils/getEnv";
 const env = getEnv();
 
 export type ResponseData = {
-  result: string;
+  result?: string;
+  error?: string;
 };
 export interface ExtendedNextApiRequest extends NextApiRequest {
   body: {
@@ -22,7 +23,7 @@ export default async function handler(
 
     if (!env) {
       res.status(500).json({
-        result: "Something went wrong",
+        error: "Something went wrong",
       });
     }
 
@@ -41,7 +42,7 @@ export default async function handler(
   } catch (error) {
     console.log(error);
     res.status(500).json({
-      result: "Something went wrong",
+      error: "Something went wrong",
     });
   }
 }

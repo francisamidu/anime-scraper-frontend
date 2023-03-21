@@ -25,6 +25,9 @@ const SubscriptionForm = () => {
         },
         body: JSON.stringify(user),
       });
+      if (!response.result) {
+        throw response.error;
+      }
       toast.success(response.result);
       setUser({
         email: "",

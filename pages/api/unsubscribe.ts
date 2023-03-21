@@ -19,7 +19,7 @@ export default async function handler(
   try {
     if (!env) {
       res.status(500).json({
-        result: "Something went wrong",
+        error: "Something went wrong",
       });
     }
     const { email, conf_num } = req.body;
@@ -35,7 +35,7 @@ export default async function handler(
     });
   } catch {
     res.status(500).json({
-      result: "Something went wrong",
+      error: "Something went wrong",
     });
   }
 }
