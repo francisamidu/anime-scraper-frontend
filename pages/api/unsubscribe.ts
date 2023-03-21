@@ -1,3 +1,4 @@
+import axios from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
 import fetcher from "../../utils/fetcher";
 import { getEnv } from "../../utils/getEnv";
@@ -23,15 +24,21 @@ export default async function handler(
       });
     }
     const { email, conf_num } = req.body;
-    const response = await fetcher<ResponseData>(env.UNSUBSCRIPTION_URL, {
-      method: "POST",
-      body: JSON.stringify({
-        conf_num,
+
+    const {
+      data: { result },
+    } = await axios.post<ResponseData>(env.UNSUBSCRIPTION_URL, {
+      data: JSON.stringify({
         email,
+        conf_num,
       }),
     });
+
+    if (!result) {
+      throw new Error();
+    }
     res.status(200).json({
-      result: response.result,
+      result,
     });
   } catch {
     res.status(500).json({

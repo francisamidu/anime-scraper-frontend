@@ -1,3 +1,4 @@
+import axios from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
 import fetcher from "../../utils/fetcher";
 import { getEnv } from "../../utils/getEnv";
@@ -26,18 +27,17 @@ export default async function handler(
         error: "Something went wrong",
       });
     }
-
-    const response = await fetcher<ResponseData>(env.SUBSCRIPTION_URL, {
-      method: "POST",
-      body: JSON.stringify({
+    const {
+      data: { result },
+    } = await axios.post<ResponseData>(env.SUBSCRIPTION_URL, {
+      data: JSON.stringify({
         email,
         firstName,
       }),
     });
-    console.log(response.result);
 
     res.status(200).json({
-      result: response.result,
+      result,
     });
   } catch (error) {
     console.log(error);

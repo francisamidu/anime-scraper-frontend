@@ -26,7 +26,7 @@ const SubscriptionForm = () => {
         body: JSON.stringify(user),
       });
       if (!response.result) {
-        throw response.error;
+        throw response;
       }
       toast.success(response.result);
       setUser({
@@ -37,7 +37,8 @@ const SubscriptionForm = () => {
         router.push("/");
       }, 5000);
     } catch (error) {
-      toast.error(error.message);
+      console.log(error);
+      toast.error(error?.message);
     }
   };
   return (

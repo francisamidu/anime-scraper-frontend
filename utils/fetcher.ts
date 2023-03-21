@@ -3,7 +3,7 @@ function fetcher<TResponse>(
   config: RequestInit = {}
 ): Promise<TResponse> {
   return fetch(url, config)
-    .then((response) => response.text())
+    .then((response) => response.json())
     .then((data) => data as TResponse);
 }
 export default fetcher;
