@@ -20,6 +20,12 @@ export default async function handler(
 ) {
   const { email, firstName } = req.body;
 
+  if (!env) {
+    res.status(500).json({
+      result: "Something went wrong",
+    });
+  }
+
   const response = await fetcher<ResponseData>(env.SUBSCRIPTION_URL, {
     method: "POST",
     body: JSON.stringify({

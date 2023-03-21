@@ -15,6 +15,11 @@ export default async function handler(
   req: ExtendedNextApiRequest,
   res: NextApiResponse<ResponseData | string>
 ) {
+  if (!env) {
+    res.status(500).json({
+      result: "Something went wrong",
+    });
+  }
   const { email, conf_num } = req.body;
 
   const response = await fetcher<ResponseData>(env.CONFIRMATION_URL, {
