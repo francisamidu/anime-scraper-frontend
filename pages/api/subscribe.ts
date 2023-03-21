@@ -19,7 +19,7 @@ export default async function handler(
   const { email, firstName } = req.body;
   if (!email) {
     res.status(429).json({
-      result: "Please provide your email",
+      result: "Please provide your email" + JSON.stringify(req.body),
     });
   }
 

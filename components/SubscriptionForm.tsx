@@ -19,6 +19,10 @@ const SubscriptionForm = () => {
         body: JSON.stringify(user),
       });
       toast.success(response.result);
+      setUser({
+        email: "",
+        firstName: "",
+      });
       setTimeout(() => {
         router.push("/");
       }, 5000);
