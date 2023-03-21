@@ -12,6 +12,7 @@ const SubscriptionForm = () => {
     email: "",
     firstName: "",
   });
+  const [successMsg, setSuccessMsg] = useState("");
   const subscribeToNewsletter = async () => {
     if (Object.values(user).some((val) => !val)) {
       toast.error("Please provide email and first name");
@@ -28,11 +29,13 @@ const SubscriptionForm = () => {
       if (!response.result) {
         throw new Error(response.error);
       }
+      setSuccessMsg("Check your inbox for an email from us!!");
       toast.success(response.result);
       setUser({
         email: "",
         firstName: "",
       });
+      setSuccessMsg("");
       setTimeout(() => {
         router.push("/");
       }, 5000);
@@ -72,6 +75,7 @@ const SubscriptionForm = () => {
           }
         />
         <MainBtn text="Subscribe Now" onClick={subscribeToNewsletter} />
+        <span className="text-green-500 text-center my-4">{successMsg}</span>
       </div>
       <span className="text-blue-gray-600 md:text-left text-center w-full">
         Get weekly updates in your inbox. Don{`'`}t worry we don{`'`}t spam!!
