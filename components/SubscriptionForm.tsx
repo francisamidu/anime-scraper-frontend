@@ -14,7 +14,10 @@ const SubscriptionForm = () => {
   });
   const subscribeToNewsletter = async () => {
     try {
-      const response = await fetcher<ResponseData>("api/subscribe");
+      const response = await fetcher<ResponseData>("api/subscribe", {
+        method: "POST",
+        body: JSON.stringify(user),
+      });
       toast.success(response.result);
       setTimeout(() => {
         router.push("/");
