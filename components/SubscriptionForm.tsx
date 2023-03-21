@@ -13,6 +13,10 @@ const SubscriptionForm = () => {
     firstName: "",
   });
   const subscribeToNewsletter = async () => {
+    if (Object.values(user).some((val) => !val)) {
+      toast.error("Please provide email and first name");
+      return;
+    }
     try {
       const response = await fetcher<ResponseData>("api/subscribe", {
         method: "POST",

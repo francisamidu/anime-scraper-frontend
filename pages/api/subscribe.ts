@@ -12,22 +12,13 @@ export interface ExtendedNextApiRequest extends NextApiRequest {
     firstName: string;
   };
 }
+0;
+
 export default async function handler(
   req: ExtendedNextApiRequest,
   res: NextApiResponse<ResponseData | string>
 ) {
   const { email, firstName } = req.body;
-  if (!email) {
-    res.status(429).json({
-      result: "Please provide your email" + JSON.stringify(req.body),
-    });
-  }
-
-  if (!firstName) {
-    res.status(429).json({
-      result: "Please provide your first name",
-    });
-  }
 
   const response = await fetcher<ResponseData>(env.SUBSCRIPTION_URL, {
     method: "POST",
