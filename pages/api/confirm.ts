@@ -1,7 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import fetcher from "../../utils/fetcher";
-import shared from "../../shared.json";
+import { getEnv } from "../../utils/getEnv";
 import { ResponseData } from "./subscribe";
+const env = getEnv();
 
 interface ExtendedNextApiRequest extends NextApiRequest {
   body: {
@@ -27,16 +28,13 @@ export default async function handler(
     });
   }
 
-  const response = await fetcher<ResponseData>(
-    `${shared.api}/newsletter/confirm`,
-    {
-      method: "POST",
-      body: JSON.stringify({
-        conf_num,
-        email,
-      }),
-    }
-  );
+  const response = await fetcher<ResponseData>(env.CONFIRMATION_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      conf_num,
+      email,
+    }),
+  });
   res.status(200).json({
     result: response.result,
   });

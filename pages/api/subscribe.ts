@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import fetcher from "../../utils/fetcher";
-import shared from "../../shared.json";
+import { getEnv } from "../../utils/getEnv";
+const env = getEnv();
 
 export type ResponseData = {
   result: string;
@@ -28,16 +29,13 @@ export default async function handler(
     });
   }
 
-  const response = await fetcher<ResponseData>(
-    `${shared.api}/newsletter/subscribe`,
-    {
-      method: "POST",
-      body: JSON.stringify({
-        email,
-        firstName,
-      }),
-    }
-  );
+  const response = await fetcher<ResponseData>(env.SUBSCRIPTION_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      email,
+      firstName,
+    }),
+  });
   res.status(200).json({
     result: response.result,
   });
