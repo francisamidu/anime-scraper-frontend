@@ -29,12 +29,15 @@ export default async function handler(
     }
     const {
       data: { result },
-    } = await axios.post<ResponseData>(env.SUBSCRIPTION_URL, {
-      data: JSON.stringify({
-        email,
-        firstName,
-      }),
-    });
+    } = await axios.post<ResponseData>(
+      `${env.BASE_URL}/${env.SUBSCRIPTION_URL}`,
+      {
+        data: JSON.stringify({
+          email,
+          firstName,
+        }),
+      }
+    );
 
     res.status(200).json({
       result,

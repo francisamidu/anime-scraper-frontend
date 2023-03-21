@@ -26,12 +26,15 @@ export default async function handler(
 
     const {
       data: { result },
-    } = await axios.post<ResponseData>(env.CONFIRMATION_URL, {
-      data: JSON.stringify({
-        email,
-        conf_num,
-      }),
-    });
+    } = await axios.post<ResponseData>(
+      `${env.BASE_URL}/${env.CONFIRMATION_URL}`,
+      {
+        data: JSON.stringify({
+          email,
+          conf_num,
+        }),
+      }
+    );
 
     res.status(200).json({
       result,

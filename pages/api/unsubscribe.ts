@@ -27,12 +27,15 @@ export default async function handler(
 
     const {
       data: { result },
-    } = await axios.post<ResponseData>(env.UNSUBSCRIPTION_URL, {
-      data: JSON.stringify({
-        email,
-        conf_num,
-      }),
-    });
+    } = await axios.post<ResponseData>(
+      `${env.BASE_URL}/${env.UNSUBSCRIBE_URL}`,
+      {
+        data: JSON.stringify({
+          email,
+          conf_num,
+        }),
+      }
+    );
 
     if (!result) {
       throw new Error();
