@@ -18,22 +18,29 @@ export default async function handler(
   req: ExtendedNextApiRequest,
   res: NextApiResponse<ResponseData | string>
 ) {
-  const { email, firstName } = req.body;
+  try {
+    const { email, firstName } = JSON.parse(JSON.stringify(req.body));
 
-  if (!env) {
+    if (!env) {
+      res.status(500).json({
+        result: "Something went wrong",
+      });
+    }
+
+    const response = await fetcher<ResponseData>(env.SUBSCRIPTION_URL, {
+      method: "POST",
+      body: JSON.stringify({
+        email,
+        firstName,
+      }),
+    });
+
+    res.status(200).json({
+      result: response.result,
+    });
+  } catch (error) {
     res.status(500).json({
       result: "Something went wrong",
     });
   }
-
-  const response = await fetcher<ResponseData>(env.SUBSCRIPTION_URL, {
-    method: "POST",
-    body: JSON.stringify({
-      email,
-      firstName,
-    }),
-  });
-  res.status(200).json({
-    result: response.result,
-  });
 }
