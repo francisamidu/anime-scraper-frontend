@@ -1,6 +1,4 @@
-import { Button } from "@material-tailwind/react";
 import React from "react";
-import shared from "../shared.json";
 import { SubscriptionForm } from ".";
 
 const tags = ["animes", "reviews", "videos", "new releases"];
