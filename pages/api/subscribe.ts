@@ -12,14 +12,13 @@ export interface ExtendedNextApiRequest extends NextApiRequest {
     firstName: string;
   };
 }
-0;
 
 export default async function handler(
   req: ExtendedNextApiRequest,
   res: NextApiResponse<ResponseData | string>
 ) {
   try {
-    const { email, firstName } = JSON.parse(JSON.stringify(req.body));
+    const { email, firstName } = req.body;
 
     if (!env) {
       res.status(500).json({
@@ -34,11 +33,13 @@ export default async function handler(
         firstName,
       }),
     });
+    console.log(response.result);
 
     res.status(200).json({
       result: response.result,
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({
       result: "Something went wrong",
     });

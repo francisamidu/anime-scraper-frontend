@@ -21,7 +21,7 @@ export default async function handler(
         result: "Something went wrong",
       });
     }
-    const { email, conf_num } = JSON.parse(JSON.stringify(req.body));
+    const { email, conf_num } = req.body;
 
     const response = await fetcher<ResponseData>(env.CONFIRMATION_URL, {
       method: "POST",

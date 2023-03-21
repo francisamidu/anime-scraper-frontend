@@ -20,6 +20,9 @@ const SubscriptionForm = () => {
     try {
       const response = await fetcher<ResponseData>("api/subscribe", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(user),
       });
       toast.success(response.result);
