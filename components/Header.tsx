@@ -29,12 +29,6 @@ const Header = () => {
                 )
               )}
             </div>
-            <h1 className="my-2 text-midnight-500 text-5xl font-bold text-center">
-              {shared.name}
-            </h1>
-            <h2 className="my-3 text-blue-gray-600 text-center">
-              {shared.description}
-            </h2>
             <SubscriptionForm />
           </div>
         </div>
