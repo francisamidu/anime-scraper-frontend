@@ -1,7 +1,7 @@
 import axios from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
-import fetcher from "../../utils/fetcher";
 import { getEnv } from "../../utils/getEnv";
+import getErrorMessage from "../../utils/getErrorMessage";
 import { ResponseData } from "./subscribe";
 
 const env = getEnv();
@@ -20,32 +20,30 @@ export default async function handler(
   try {
     if (!env) {
       res.status(500).json({
-        error: "Something went wrong",
+        message: "Env variables not provided",
       });
     }
     const { email, conf_num } = req.body;
 
     const {
-      data: { result },
+      data: { message },
     } = await axios.post<ResponseData>(
-      `${env.BASE_URL}/${env.UNSUBSCRIBE_URL}`,
+      `${env.BASE_URL}/${env.UNSUBSCRIPTION_URL}`,
       {
-        data: JSON.stringify({
-          email,
-          conf_num,
-        }),
+        email,
+        conf_num,
       }
     );
 
-    if (!result) {
+    if (!message) {
       throw new Error();
     }
     res.status(200).json({
-      result,
+      message,
     });
-  } catch {
+  } catch (error) {
     res.status(500).json({
-      error: "Something went wrong",
+      error: getErrorMessage(error),
     });
   }
 }

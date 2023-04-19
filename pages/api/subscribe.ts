@@ -38,10 +38,10 @@ export default async function handler(
       data: { message },
     } = await axios.post<ResponseData>(
       `${env.BASE_URL}/${env.SUBSCRIPTION_URL}`,
-      JSON.stringify({
+      {
         email,
         firstName,
-      })
+      }
     );
 
     res.status(200).json({
