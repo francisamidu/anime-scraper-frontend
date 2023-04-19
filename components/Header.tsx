@@ -18,12 +18,14 @@ const Header = () => {
                     <span className="mx-3 text-midnight-500">-</span>
                   </div>
                 ) : (
-                  <span
-                    className="uppercase text-xs font-bold text-midnight-500"
-                    key={index}
-                  >
-                    {tag}
-                  </span>
+                  <div>
+                    <span
+                      className="uppercase text-xs font-bold text-midnight-500"
+                      key={index}
+                    >
+                      {tag}
+                    </span>
+                  </div>
                 )
               )}
             </div>
@@ -31,6 +33,7 @@ const Header = () => {
           </div>
         </div>
       </section>
+      z
     </main>
   );
 };

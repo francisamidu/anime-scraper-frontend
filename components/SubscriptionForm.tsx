@@ -26,11 +26,11 @@ const SubscriptionForm = () => {
         },
         body: JSON.stringify(user),
       });
-      if (!response.result) {
+      if (!response.message) {
         throw new Error(response.error);
       }
       setSuccessMsg("Check your inbox for an email from us!!");
-      toast.success(response.result);
+      toast.success(response.message);
       setUser({
         email: "",
         firstName: "",
