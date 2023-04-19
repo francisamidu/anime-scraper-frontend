@@ -27,6 +27,13 @@ export default async function handler(
         error: "Something went wrong",
       });
     }
+    
+    if(!email || !firstName){
+      res.status(500).json({
+        error: "Please provide email and first name",
+      });
+
+    }
     const {
       data: { result },
     } = await axios.post<ResponseData>(
